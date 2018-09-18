@@ -6,6 +6,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 /**
+ * MD5加密
  * @Author Wayne.Wang
  * @Date 18/9/18
  */

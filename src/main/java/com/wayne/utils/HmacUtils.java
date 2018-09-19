@@ -57,7 +57,6 @@ public class HmacUtils {
     private static Mac getMac(String hmacKey) {
         try {
             SecretKey secretKey = new SecretKeySpec(DatatypeConverter.parseBase64Binary(hmacKey), KEY_MAC);
-
             Mac mac = Mac.getInstance(secretKey.getAlgorithm());
             mac.init(secretKey);
             return mac;
@@ -91,7 +90,6 @@ public class HmacUtils {
     private static Mac getMac(String hmacKey, String algorithm) {
         try {
             SecretKey secretKey = new SecretKeySpec(DatatypeConverter.parseBase64Binary(hmacKey), algorithm);
-
             Mac mac = Mac.getInstance(secretKey.getAlgorithm());
             mac.init(secretKey);
             return mac;
@@ -110,12 +108,10 @@ public class HmacUtils {
      */
     public static String init() {
         SecretKey key;
-        String str = "";
         try {
             KeyGenerator generator = KeyGenerator.getInstance(KEY_MAC);
             key = generator.generateKey();
-            str = encryptBase64(key.getEncoded());
-            return str;
+            return encryptBase64(key.getEncoded());
         } catch (Exception e) {
             throw new RuntimeException("生成key失败");
         }

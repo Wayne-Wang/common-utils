@@ -28,7 +28,7 @@ public class Collections {
         }
 
         for (T e : array) {
-            if (Objects.equals(e, ele)) {
+            if (e != null ? e.equals(ele) : ele == null) {
                 return true;
             }
         }
